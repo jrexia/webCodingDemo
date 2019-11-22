@@ -11,6 +11,7 @@ function MyPromise(fn) {
         if (self.status !== 'pending') return;
         self.status = 'resolved';
         self.value  = value;
+        console.log('resolve',self);
         self.resolvedCallBackArray.forEach(item =>
             item(self.value));
     }
@@ -61,6 +62,10 @@ MyPromise.prototype.then = function (onFulfilled, onRejected) {
             console.log(data, '我是异步后的数据');
         }, 1000);
     }).then(data => {
-        console.log(data, '我是第二个异步后的数据');
+        setTimeout(()=>{
+            console.log(data, '我是第二个异步后的数据');
+        },1000)
+    }).then(data=>{
+        console.log(data, '我是第三个异步后的数据');
     });
 })();

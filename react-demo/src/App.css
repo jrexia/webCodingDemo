@@ -1,0 +1,27 @@
+
+/*入场动画开始*/
+/*fade-appear:第一次渲染显示的动画*/
+.fade-enter,.fade-appear{
+    opacity: 0;
+}
+/*入场动画开始第二个瞬间到动画执行完之前*/
+.fade-enter-active,.fade-appear-active{
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
+/*入场动画执行完后悔添加到元素的class中*/
+.fade-enter-done{
+    opacity: 1;
+}
+/*出场动画*/
+.fade-exit{
+    opacity: 1;
+}
+/*出场动画会一直存在元素中*/
+.fade-exit-active{
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+.fade-exit-done{
+    opacity: 0;
+}
