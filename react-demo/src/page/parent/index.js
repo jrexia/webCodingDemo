@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'; // Fragment:占位元素
 import Demo from '../../components/demo'
 
-const Name = (user) => <div>name:{user}</div>
+const Name = (user) => <div>name:{user}</div>; // 无状态组件
 
 class Parent extends React.Component {
 
