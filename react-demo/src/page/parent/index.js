@@ -26,7 +26,7 @@ class Parent extends React.Component {
     };
     appHandleClick=()=>{
         console.log('子组件点击')
-    }
+    };
 
     render() {
         console.log('render1')

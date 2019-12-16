@@ -1,6 +1,7 @@
 import React from 'react';
 import {Input, Button, List} from 'antd';
 import {connect} from 'react-redux';
+import {actionCreators as loginActionCreators}  from './store'; // 常量
 
 class Login extends React.Component {
 
@@ -13,6 +14,18 @@ class Login extends React.Component {
     };
 
     render() {
+        let a = {a: 10};
+        let b = {b: 10};
+        let c=function () {
+            
+        };
+        let obj = {
+            a: 10
+        };
+        obj[b] = 20;
+        obj[c]=30;
+        console.log(obj[a]); // 20
+
         // 通过this.props获取store里的数据
         let {inputValue, list} = this.props;
         console.log('render1');
@@ -36,19 +49,16 @@ class Login extends React.Component {
 // 把store的数据映射给组件,变成传给组件的props
 const mapStateToProps = (state) => {
     return {
-        inputValue: state.inputValue,
-        list      : state.list
+        inputValue: state.getIn(['login','inputValue']),
+        list      : state.getIn(['login','list'])
     }
 };
 const mapDispatchToProps = (dispatch) => {
     return {
         handleInputChange(e){
-            const action = {
-                type : 'change_input_value',
-                value: e.target.value
-            };
-            dispatch(action)
+            dispatch(loginActionCreators.setInputValue(e.target.value))
         }
     }
 };
+// connect:连接store到组件中
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
