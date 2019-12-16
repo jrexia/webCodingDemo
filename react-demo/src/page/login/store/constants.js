@@ -1,0 +1,1 @@
+export const INPUT_VALUE='login/input_value';
